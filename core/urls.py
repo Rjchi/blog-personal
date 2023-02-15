@@ -13,6 +13,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # Viculamos las urls de blog y category
+    path('api/blog/', include('apps.blog.urls')), # esto se vera asi http://dominio.com/api/blog
+    path('api/category/', include('apps.category.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Llamamos a MEDIA_URL e indicamos cual es el root(donde guardamos las img, vid..)
 

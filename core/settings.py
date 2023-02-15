@@ -10,7 +10,7 @@ import environ # nos permite configurar las variables de ambiente
 env = environ.Env() # Con env podremos definir las variables de ambiente
 environ.Env.read_env() # Con esto activamos environ para que lea settings
 
-BASE_DIR = Path(__file__).resolve().parent.parent # Esto apunta a la carpeta base del proyecto (agencia_marketing)
+BASE_DIR = Path(__file__).resolve().parent.parent # Esto apunta a la carpeta base del proyecto (blog_personal)
 
 
 # Con esto protegemos la clave secreta
@@ -38,7 +38,10 @@ DJANGO_APPS = [
 # Aqui para mas orden vamos a tener las app de nuestro proyecto
 
 PROJECT_APPS = [
+    # Llamamos las apps que tenemos
 
+    'apps.blog',
+    'apps.category',
 ]
 
 # Este va a contener nuestros paquetes de requirements.txt
@@ -148,9 +151,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Cambiamos el lenguaje a español (es) la zona horaria (GMT-5)
 
-LANGUAGE_CODE = 'es'
-TIME_ZONE = 'GMT-5'
-USE_I18N = True
+# LANGUAGE_CODE = 'es'
+# TIME_ZONE = 'GMT-5'
+# USE_I18N = True
+
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
 USE_L10N = True # Para el lenguaje
 USE_TZ = True # Para usar el time_zone
 
