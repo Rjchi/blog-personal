@@ -60,25 +60,25 @@ INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 # Con esto activamos ckeditor, tambien lo podemos configurar (custom, basic, full etc) ver:
 # https://django-ckeditor.readthedocs.io/en/latest/
 
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'toolbar': 'full',
-#         'autoParagraph': False,
-#     },
-# }
-
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
-        ],
+        'toolbar': 'full',
         'autoParagraph': False,
-    }
+    },
 }
+
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'Custom',
+#         'toolbar_Custom': [
+#             ['Bold', 'Italic', 'Underline'],
+#             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+#             ['Link', 'Unlink'],
+#             ['RemoveFormat', 'Source']
+#         ],
+#         'autoParagraph': False,
+#     }
+# }
 
 CKEDITOR_UPLOAD_PATH = "/media/" # Esto indica donde queremos subir nuestros archivos
 
@@ -149,16 +149,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Cambiamos el lenguaje a español (es) la zona horaria (GMT-5)
+# Cambiamos el lenguaje a español (es) la zona horaria (GMT-5 o America/Bogota)
 
-# LANGUAGE_CODE = 'es'
-# TIME_ZONE = 'GMT-5'
-# USE_I18N = True
-
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'es'
+TIME_ZONE = 'America/Bogota'
+USE_I18N = True
 USE_L10N = True # Para el lenguaje
 USE_TZ = True # Para usar el time_zone
+
+# LANGUAGE_CODE = 'en-us'
+# TIME_ZONE = 'UTC'
 
 
 # Con esto le indicamos donde van a estar los archivos estaticos (css, js, img, audios ...)

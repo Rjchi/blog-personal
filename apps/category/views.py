@@ -58,4 +58,4 @@ class ListCategoriesView(APIView):
 
             return Response({'Categories': result}, status=status.HTTP_200_OK)
         else:
-            return Response({'error': 'No hemos encontrado categorias'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'Not Found'}, status=status.HTTP_404_NOT_FOUND)

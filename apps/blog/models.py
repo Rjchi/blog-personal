@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField # Para las imagenes
 
 from apps.category.models import Category
 
@@ -12,10 +13,10 @@ class Post(models.Model):
 
     title =         models.CharField(max_length=255)
     slug =          models.SlugField(max_length=255, unique=True)
-    thumbnail =     models.ImageField(upload_to=blog_thumbnail_directory()) # upload_to donde la subimos
-    excerpt =       models.CharField(max_length=255) # Description small
-    description =   RichTextField() # Texto enriquesido
-    published =     models.DataTimeField(default=timezone.now)
+    thumbnail =     models.ImageField(upload_to=blog_thumbnail_directory) # upload_to donde la subimos
+    description =   models.TextField(max_length=255) # Description small
+    content =       RichTextUploadingField() # Texto enriquesido esto depende de la config que le dimos
+    published =     models.DateTimeField(default=timezone.now)
     views =         models.IntegerField(default=0, blank=True)
     time_red =      models.IntegerField()
 
