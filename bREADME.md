@@ -7,7 +7,8 @@ Nota: Cuando una seccion tiene paginas unicas en estilos por lo general es una p
 	pero la plantilla es la misma.
 	
 	Siempre que vamos a implementar contenido que es dinamico empezamos con el backend.
-	este va  a crear los modelos(post (con sus atributos)) que van a ser empujados a la base de datos (entendiendo como modelo la estructura de la pagina que vamos 
+	este va  a crear los modelos(post (con sus atributos)) que van a ser empujados a la base de datos 
+	(entendiendo como modelo la estructura de la pagina que vamos 
 	a utilizar header=title - categoria, main=description etc)
 
 20. Ahora para migrar un proyecto lo que tenemos que hacer es crear una carpeta nueva dentro de la carpeta contenedora 
@@ -29,4 +30,22 @@ Nota: Cuando una seccion tiene paginas unicas en estilos por lo general es una p
 33. Ahora ejecutamos python manage.py createsuperuser y creamos un super usuario y agregamos unas cuatas categorias y subcategorias
 34. Ahora probamos la primera vista con postman | class ListCategoriesView
 35. Ahora en blog creamos un archivo llamado serializers.py
-36. 
+36. Ahora hacemos un nuevo build de nuestro proyecto y tambien eliminamos static(los que ya teniamos) y comentamos lo que hicimos en github
+	pero no sincronizamos
+37. Ahora en el cmd de react ejecutamos npm run build
+38. Ahora en el cmd de python ejecutamos python manage.py collectstatic
+39. Ahora en blog creamos un archivo llamado pagination.py (para que cuando llamamemos la api (la lista de post) no nos traiga todos los 
+	posts de golpe (err505))
+	Siempre que listemos debemos paginar
+40. 
+41.
+
+
+
+
+
+
+
+
+
+
