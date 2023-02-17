@@ -5,7 +5,7 @@ from . import models
 
 class CategoryAdmin(admin.ModelAdmin):
     # Con esto indicamos como queremos ver panel de administrador
-    list_display =  ('id', 'name', )
+    list_display =  ('id', 'name', 'parent')
 
     # Quiero poder acceder a esto dando click en el name
     list_display_links =  ('name', )

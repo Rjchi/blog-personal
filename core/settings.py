@@ -80,7 +80,7 @@ CKEDITOR_CONFIGS = {
 #     }
 # }
 
-CKEDITOR_UPLOAD_PATH = "/media/" # Esto indica donde queremos subir nuestros archivos
+CKEDITOR_UPLOAD_PATH = "uploads/" # Esto indica donde queremos subir nuestros archivos
 
 # Los middleware son una pieza de código la cual se ejecutará antes y/o
 # después de cada petición realizada al servidor y a traves de ellos podemos
