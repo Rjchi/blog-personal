@@ -31,7 +31,7 @@ class BlogListView(APIView):
             serializer = PostListSerializer(results, many=True)
 
             # return Response({'Post': serializer.data}, status=status.HTTP_200_OK)
-            return paginator.get_paginated_response({'posts': serializer.data}, status=status.HTTP_200_OK)
+            return paginator.get_paginated_response({'posts': serializer.data})
         else:
             return Response({'Error': 'Not posts found'}, status=status.HTTP_404_NOT_FOUND)
 
