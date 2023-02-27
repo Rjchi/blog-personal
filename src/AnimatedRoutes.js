@@ -9,6 +9,7 @@ import Error404 from "containers/errors/Error404";
 
 import Home from "containers/pages/Home";
 import Cases from "containers/pages/Cases";
+import Category from "containers/pages/Category";
 import Services from "containers/pages/Services";
 import About from "containers/pages/About";
 import Careers from "containers/pages/Careers";
@@ -33,6 +34,7 @@ const AnimatedRoutes = () => {
         <Route path="/nosotros" element={<About />}></Route>
         <Route path="/carreras" element={<Careers />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
+        <Route path="/category/:slug" element={<Category />}></Route>
         <Route path="/contacto" element={<Contact />}></Route>
       </Routes>
     </AnimatePresence>

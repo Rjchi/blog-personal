@@ -9,9 +9,9 @@ import {
 // Vamos a llamar esta funcion cuando queramos hacer un llamado a la API
 export const get_categories = () => async dispatch => {
   const config = {
-    headers: {
-      'Accept': 'application/json',
-    },
+      headers: {
+          'Accept': 'application/json'
+      }
   };
 
   try {
@@ -19,25 +19,22 @@ export const get_categories = () => async dispatch => {
     // de codigo hasta que tengamos una repuesta)
 
     // Con process.env accedemos a la url de nuestra API y le pasamos la coonfiguracion
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/api/category/list`,
-      config
-    );
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/category/list`, config)
 
-    if (response.status === 200) {
+    if (res.status === 200) {
       dispatch({
         type: GET_CATEGORIES_SUCCESS,
         // El payload contiene el resultado del response
-        payload: response.data,
+        payload: res.data
       });
     } else {
       dispatch({
-        type: GET_CATEGORIES_FAIL,
+        type: GET_CATEGORIES_FAIL
       });
     }
   } catch (err) {
     dispatch({
-      type: GET_CATEGORIES_FAIL,
+      type: GET_CATEGORIES_FAIL
     });
   }
 };

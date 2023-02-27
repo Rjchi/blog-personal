@@ -3,7 +3,7 @@
 import {
   GET_CATEGORIES_SUCCESS,
   GET_CATEGORIES_FAIL,
-} from "../actions/categories/types";
+} from '../actions/categories/types'
 
 const initialState = {
   categories: null,

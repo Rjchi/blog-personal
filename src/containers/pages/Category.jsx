@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
@@ -11,29 +12,34 @@ import Layout from "hocs/layouts/Layout";
 
 // categories es un action de redux
 import { get_categories } from "redux/actions/categories/categories";
-import {
-  get_blog_list,
-  get_blog,
-  get_blog_list_category,
-  get_blog_list_category_page,
-  get_blog_list_page,
-  search_blog,
-  search_blog_page,
-} from "redux/actions/blog/blog";
+import { get_blog_list_category, get_blog_list_category_page } from "redux/actions/blog/blog";
 
 import { connect } from "react-redux";
 
-function Blog({ get_categories, categories, get_blog_list, get_blog_list_page, posts, count, next, previous }) {
+function Category({
+  get_categories,
+  categories,
+  get_blog_list_category,
+  get_blog_list_category_page,
+  posts,
+  count,
+  next,
+  previous,
+}) {
+
+    const params = useParams()
+    const slug = params.slug
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-    get_categories()
-    get_blog_list()
+    window.scrollTo(0, 0);
+    get_categories();
+    get_blog_list_category(slug);
   }, []);
 
   return (
     <Layout>
       <Helmet>
-        <title>Prototype | Blog</title>
+        <title>Prototype | Category: {slug}</title>
         <meta
           name="description"
           content="Prototipo pagina web react y django (con fines educativos)"
@@ -66,8 +72,7 @@ function Blog({ get_categories, categories, get_blog_list, get_blog_list_page, p
       </Helmet>
       <Navbar />
       <div className="pt-28">
-        {/* Si existen las categorias las pasamos */}
-        <BlogCateHeader categories={categories&&categories} />
+        <BlogCateHeader categories={categories && categories} />
       </div>
       <Footer />
     </Layout>
@@ -77,15 +82,14 @@ function Blog({ get_categories, categories, get_blog_list, get_blog_list_page, p
 const mapStateToProps = (state) => ({
   categories: state.categories.categories,
 
-  posts: state.blog.blog_list,
+  posts: state.blog.blog_list_category,
   count: state.blog.count,
   next: state.blog.next,
   previous: state.blog.previous,
-
 });
 
 export default connect(mapStateToProps, {
   get_categories,
-  get_blog_list,
-  get_blog_list_page
-})(Blog);
+  get_blog_list_category,
+  get_blog_list_category_page,
+})(Category);
