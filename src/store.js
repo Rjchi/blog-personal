@@ -6,7 +6,7 @@ import rootReducer from './redux/reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 // El estado inicial lo vamos a llenar con variables
-const inialState = {
+const initialState = {
 
 };
 
@@ -14,7 +14,7 @@ const middleware = [thunk];
 
 const store = createStore(
     rootReducer,
-    inialState,
+    initialState,
     // (Dependiendo de si no queremos que nuestro sitio refleje si esta hecho con react - redux descomentamos
     // la siguiente linea y comentamos la ultima )
     // applyMiddleware(...middleware)

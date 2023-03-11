@@ -10,7 +10,7 @@ import environ # nos permite configurar las variables de ambiente
 env = environ.Env() # Con env podremos definir las variables de ambiente
 environ.Env.read_env() # Con esto activamos environ para que lea settings
 
-BASE_DIR = Path(__file__).resolve().parent.parent # Esto apunta a la carpeta base del proyecto (agencia_marketing)
+BASE_DIR = Path(__file__).resolve().parent.parent # Esto apunta a la carpeta base del proyecto (blog_personal)
 
 
 # Con esto protegemos la clave secreta
@@ -38,7 +38,10 @@ DJANGO_APPS = [
 # Aqui para mas orden vamos a tener las app de nuestro proyecto
 
 PROJECT_APPS = [
+    # Llamamos las apps que tenemos
 
+    'apps.blog',
+    'apps.category',
 ]
 
 # Este va a contener nuestros paquetes de requirements.txt
@@ -57,27 +60,27 @@ INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 # Con esto activamos ckeditor, tambien lo podemos configurar (custom, basic, full etc) ver:
 # https://django-ckeditor.readthedocs.io/en/latest/
 
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'toolbar': 'full',
-#         'autoParagraph': False,
-#     },
-# }
-
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
-        ],
+        'toolbar': 'full',
         'autoParagraph': False,
-    }
+    },
 }
 
-CKEDITOR_UPLOAD_PATH = "/media/" # Esto indica donde queremos subir nuestros archivos
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'Custom',
+#         'toolbar_Custom': [
+#             ['Bold', 'Italic', 'Underline'],
+#             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+#             ['Link', 'Unlink'],
+#             ['RemoveFormat', 'Source']
+#         ],
+#         'autoParagraph': False,
+#     }
+# }
+
+CKEDITOR_UPLOAD_PATH = "uploads/" # Esto indica donde queremos subir nuestros archivos
 
 # Los middleware son una pieza de código la cual se ejecutará antes y/o
 # después de cada petición realizada al servidor y a traves de ellos podemos
@@ -146,13 +149,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Cambiamos el lenguaje a español (es) la zona horaria (GMT-5)
+# Cambiamos el lenguaje a español (es) la zona horaria (GMT-5 o America/Bogota)
 
 LANGUAGE_CODE = 'es'
-TIME_ZONE = 'GMT-5'
+TIME_ZONE = 'America/Bogota'
 USE_I18N = True
 USE_L10N = True # Para el lenguaje
 USE_TZ = True # Para usar el time_zone
+
+# LANGUAGE_CODE = 'en-us'
+# TIME_ZONE = 'UTC'
 
 
 # Con esto le indicamos donde van a estar los archivos estaticos (css, js, img, audios ...)
